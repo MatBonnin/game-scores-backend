@@ -1,0 +1,33 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Player {
+  id: Int!
+  name: String!
+  level: PlayerLevel!
+  nbVictoires: Int!
+  nbFailures: Int!
+  firstTime: DateTime!
+  lastTime: DateTime!
+}
+
+enum PlayerLevel {
+  God
+  Star
+  Newbie
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  players: [Player!]!
+  player(id: Int!): Player!
+}
+
+type Mutation {
+  createPlayer(name: String!, level: PlayerLevel!, nbVictoires: Int!, nbFailures: Int!): Player!
+}
